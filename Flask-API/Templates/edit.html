@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Buku</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 300px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"], button, .btn {
+            padding: 8px 14px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        input[type="submit"]:hover, button:hover, .btn:hover {
+            background-color: #2980b9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Edit Buku</h1>
+
+<form action="{{ url_for('edit_book', book_id=book.id) }}" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    Judul: <input type="text" name="title" value="{{ book.title }}" required><br>
+    Penulis: <input type="text" name="author" value="{{ book.author }}" required><br>
+    <input type="submit" value="Simpan">
+</form>
+
+
+</body>
+</html>
